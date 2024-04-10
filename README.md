@@ -1,1 +1,1 @@
-# MMGNet
+# MMANet
