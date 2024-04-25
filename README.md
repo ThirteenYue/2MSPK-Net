@@ -1,1 +1,1 @@
-# MMANet
+# MMA-Net
