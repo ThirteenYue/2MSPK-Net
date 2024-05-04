@@ -1,1 +1,1 @@
-# MMA-Net
+# 2MSPK-Net
