@@ -52,7 +52,7 @@ We didn't use any pre-trained weights
 
 ### 3. Testing
 We also added SAM prior area maps and contour maps to the test data set
-*You can generate area maps and contour mapsarea and contour plots using [SAM_prior](https://github.com/ThirteenYue/2MSPK-Net/blob/master/src/SAM_prior.py)
+* You can generate area maps and contour mapsarea and contour plots using [SAM_prior](https://github.com/ThirteenYue/2MSPK-Net/blob/master/src/SAM_prior.py)
 We will announce other test and visualization codes later
 
 ## Reference
