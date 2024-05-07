@@ -103,7 +103,7 @@ class MGNet(nn.Module):
         self.seg_prior = seg_prior
         self.boundary_prior = boundary_prior
 
-        # 固定
+        # 
         self.encoder1 = DoubleConv(in_channels, 64)
         self.M1 = MDA(64)
         self.encoder2 = Down(64, 128)
@@ -114,7 +114,7 @@ class MGNet(nn.Module):
         self.M4 = MDA(512)
         self.encoder5 = Down(512, 512)
 
-        # 初始训练为16
+        # Initial training is 16
         self.MM1 = RFB_modified(64, 16)
         self.MM2 = RFB_modified(128, 16)
         self.MM3 = RFB_modified(256, 16)
@@ -130,13 +130,13 @@ class MGNet(nn.Module):
         # val
         self.smx = OutConv(1152, 1024)
 
-        # 固定
+        # 
         self.sam4 = OutConv(1024, 256)
         self.sam3 = OutConv(1024, 128)
         self.sam2 = OutConv(1024, 64)
         self.sam1 = OutConv(1024, 32)
 
-        # 固定
+        # 
         self.rg4 = RG4(1280, 512)
         self.rg3 = RG3(640, 256)
         self.rg2 = RG2(320, 128)
