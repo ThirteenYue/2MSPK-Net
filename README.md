@@ -44,8 +44,7 @@ Then prepare the datasets in the following format for easy use of the code:
 ```
 
 ### 2. Training
-During the training process, the data were uniformly resized to 256×256 pixels and data augmentation was applied, including affine transformation, random flipping, and random rotation. Gradient descent was performed using the Adam optimizer with \beta_1 set to 0.9 and \beta_2 set to 0.999. The initial learning rate was set to 1\times{10}^{-4}, and an adaptive learning rate decay strategy was employed. If the loss on the validation set did not decrease after every 20 epochs, the learning rate was reduced by a factor of 0.5. The batch size was set to 4, and the training was completed after 600 epochs. 
-
+During the training process, the data were uniformly resized to $256\times256$ pixels and data augmentation was applied, including affine transformation, random flipping, and random rotation. Gradient descent was performed using the Adam optimizer with $\beta_1$ set to 0.9 and $\beta_2$ set to 0.999. The initial learning rate was set to $1\times{10}^{-4}$, and an adaptive learning rate decay strategy was employed. If the loss on the validation set did not decrease after every 20 epochs, the learning rate was reduced by a factor of 0.5. The batch size was set to 4, and the training was completed after 600 epochs.
 
 #### 2.2 Pre-training
 We didn't use any pre-trained weights
@@ -64,13 +63,6 @@ We will announce other test and visualization codes later
 * TransUNet: https://github.com/Beckschen/TransUNet
 * Swin-Unet: https://github.com/HuCaoFighting/Swin-Unet
 
-
-## Citations
-
-
-If this code is helpful for your study, please cite:
-```
-```
 
 
 ## Contact 
