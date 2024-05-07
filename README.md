@@ -26,7 +26,7 @@ pip install -r requirements.txt
 #### 1.1. GlaS and MoNuSeg Datasets
 The original data can be downloaded in following links:
 * MoNuSeg Dataset - [Link (Original)](https://monuseg.grand-challenge.org/Data/)
-* GLAS Dataset - [Link (Original)](https://warwick.ac.uk/fac/cross_fac/tia/data/glascontest)
+* TNBC Dataset - [Link (Original)](https://paperswithcode.com/dataset/tnbc)
 
 Then prepare the datasets in the following format for easy use of the code:
 ```angular2html
