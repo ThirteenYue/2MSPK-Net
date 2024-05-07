@@ -58,7 +58,7 @@ We will announce other test and visualization codes later
 ## Reference
 * UNet:https://github.com/LeeJunHyun/Image_Segmentation#u-net
 * UNet++: https://github.com/qubvel/segmentation_models.pytorch
-* https://github.com/huangmozhilv/u2net_torch
+* U2Net:https://github.com/huangmozhilv/u2net_torch
 * Attention U-Net: https://github.com/bigmb/Unet-Segmentation-Pytorch-Nest-of-Unets
 * TransUNet: https://github.com/Beckschen/TransUNet
 * Swin-Unet: https://github.com/HuCaoFighting/Swin-Unet
