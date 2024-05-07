@@ -9,10 +9,6 @@ This repo is the official implementation of
 We proposed a segmentation method based on SAM prior knowledge guidance strategy, and the above is a schematic diagram of integrating SAM prior knowledge.For detailed method introduction, please read the original article
 
 
-**[Online Presentation Video](https://www.bilibili.com/video/BV1ZF411p7PM?spm_id_from=333.999.0.0) is available for brief introduction.**
-
-🔥🔥🔥 For an improved version of UCTransNet, please refer to [UDTransNet](https://github.com/McGregorWwww/UDTransNet) ([Narrowing the semantic gaps in U-Net with learnable skip connections: The case of medical image segmentation
-](https://arxiv.org/abs/2312.15182)), which achieves higher performance and lower computational cost. 🔥🔥🔥
 
 
 ## Requirements
