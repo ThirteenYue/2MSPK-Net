@@ -1,18 +1,12 @@
 # 2MSPK-Net
-
 This repo is the official implementation of
 ['2MSPK-Net: A Nuclei Segmentation Network Based on Multi-Scale, Multi-Dimensional Attention, and SAM Prior Knowledge']
-
 <p align="center">
   <img src="https://github.com/ThirteenYue/2MSPK-Net/blob/master/prior.png" width="50%" height="50%" />
 </p>
 We proposed a segmentation method based on SAM prior knowledge guidance strategy, and the above is a schematic diagram of integrating SAM prior knowledge.For detailed method introduction, please read the original article
 
-
-
-
 ## Requirements
-
 Install from the ```requirements.txt``` using:
 ```angular2html
 pip install -r requirements.txt
@@ -24,103 +18,51 @@ pip install -r requirements.txt
 
 ### 1. Data Preparation
 #### 1.1. GlaS and MoNuSeg Datasets
-The original data can be downloaded in following links:
+🔥 The original data can be downloaded in following links:
 * MoNuSeg Dataset - [Link (Original)](https://monuseg.grand-challenge.org/Data/)
 * TNBC Dataset - [Link (Original)](https://paperswithcode.com/dataset/tnbc)
 
 Then prepare the datasets in the following format for easy use of the code:
 ```angular2html
-├── datasets
-    ├── GlaS
-    │   ├── Test_Folder
-    │   │   ├── img
-    │   │   └── labelcol
-    │   ├── Train_Folder
-    │   │   ├── img
-    │   │   └── labelcol
-    │   └── Val_Folder
-    │       ├── img
-    │       └── labelcol
-    └── MoNuSeg
-        ├── Test_Folder
-        │   ├── img
-        │   └── labelcol
-        ├── Train_Folder
-        │   ├── img
-        │   └── labelcol
-        └── Val_Folder
-            ├── img
-            └── labelcol
+├── Dataset
+    ├── MoNusg
+    │   ├── test
+    │   │   ├── boundary_priors
+    │   │   ├── images
+    │   │   ├── masks
+    │   │   └── seg_priors
+    │   ├── train
+    │   │   ├── boundary_priors
+    │   │   ├── images
+    │   │   ├── masks
+    │   │   └── seg_priors	
+    │   └── val
+    │   │   ├── boundary_priors
+    │   │   ├── images
+    │   │   ├── masks
+            └── seg_priors
 ```
-#### 1.2. Synapse Dataset
-The Synapse dataset we used is provided by TransUNet's authors.
-Please go to [https://github.com/Beckschen/TransUNet/blob/main/datasets/README.md](https://github.com/Beckschen/TransUNet/blob/main/datasets/README.md)
-for details.
 
 ### 2. Training
-As mentioned in the paper, we introduce two strategies 
-to optimize UCTransNet.
+During the training process, the data were uniformly resized to 256×256 pixels and data augmentation was applied, including affine transformation, random flipping, and random rotation. Gradient descent was performed using the Adam optimizer with \beta_1 set to 0.9 and \beta_2 set to 0.999. The initial learning rate was set to 1\times{10}^{-4}, and an adaptive learning rate decay strategy was employed. If the loss on the validation set did not decrease after every 20 epochs, the learning rate was reduced by a factor of 0.5. The batch size was set to 4, and the training was completed after 600 epochs. 
 
-The first step is to change the settings in ```Config.py```,
-all the configurations including learning rate, batch size and etc. are 
-in it.
-
-#### 2.1 Jointly Training
-We optimize the convolution parameters 
-in U-Net and the CTrans parameters together with a single loss.
-Run:
-```angular2html
-python train_model.py
-```
 
 #### 2.2 Pre-training
-
-Our method just replaces the skip connections in U-Net, 
-so the parameters in U-Net can be used as part of pretrained weights.
-
-By first training a classical U-Net using ```/nets/UNet.py``` 
-then using the pretrained weights to train the UCTransNet, 
-CTrans module can get better initial features.
-
-This strategy can improve the convergence speed and may 
-improve the final segmentation performance in some cases.
+We didn't use any pre-trained weights
 
 
 ### 3. Testing
-#### 3.1. Get Pre-trained Models
-Here, we provide pre-trained weights on GlaS and MoNuSeg, if you do not want to train the models by yourself, you can download them in the following links:
-* GlaS：https://drive.google.com/file/d/1ciAwb2-0G1pZrt_lgSwd-7vH1STmxdYe/view?usp=sharing
-* MoNuSeg: https://drive.google.com/file/d/1CJvHoh3VrPsBn_njZDo6SvJF_yAVe5MK/view?usp=sharing
-#### 3.2. Test the Model and Visualize the Segmentation Results
-First, change the session name in ```Config.py``` as the training phase.
-Then run:
-```angular2html
-python test_model.py
-```
-You can get the Dice and IoU scores and the visualization results. 
-
-🔥🔥 **The testing results of all classes in Synapse dataset can be downloaded through [this link](https://drive.google.com/file/d/1E-ZJLkNc0AJSUKI1CCWdcROMS9wERI9s/view?usp=sharing).** 🔥🔥
-
-
-### 4. Reproducibility
-In our code, we carefully set the random seed and set cudnn as 'deterministic' mode to eliminate the randomness. 
-However, there still exsist some factors which may cause different training results, e.g., the cuda version, GPU types, the number of GPUs and etc. The GPU used in our experiments is NVIDIA A40 (48G) and the cuda version is 11.2.
-
-Especially for multi-GPU cases, the upsampling operation has big problems with randomness.
-See https://pytorch.org/docs/stable/notes/randomness.html for more details.
-
-When training, we suggest to train the model twice to verify wheather the randomness is eliminated. Because we use the early stopping strategy, **the final performance may change significantly due to the randomness**. 
+We also added SAM prior area maps and contour maps to the test data set
+*You can generate area maps and contour mapsarea and contour plots using SAM_prior.py
+We will announce other test and visualization codes later
 
 ## Reference
-
-
+* UNet:https://github.com/LeeJunHyun/Image_Segmentation#u-net
 * UNet++: https://github.com/qubvel/segmentation_models.pytorch
+* https://github.com/huangmozhilv/u2net_torch
 * Attention U-Net: https://github.com/bigmb/Unet-Segmentation-Pytorch-Nest-of-Unets
-* MultiResUNet: https://github.com/makifozkanoglu/MultiResUNet-PyTorch
 * TransUNet: https://github.com/Beckschen/TransUNet
 * Swin-Unet: https://github.com/HuCaoFighting/Swin-Unet
-* MedT: https://github.com/jeya-maria-jose/Medical-Transformer
-
 
 
 ## Citations
@@ -128,19 +70,8 @@ When training, we suggest to train the model twice to verify wheather the random
 
 If this code is helpful for your study, please cite:
 ```
-@article{UCTransNet,
-	 title={UCTransNet: Rethinking the Skip Connections in U-Net from a Channel-Wise Perspective with Transformer}, 
-	 volume={36}, 
-	 url={https://ojs.aaai.org/index.php/AAAI/article/view/20144}, 
-  	 DOI={10.1609/aaai.v36i3.20144},
-	 number={3}, 
-	 journal={Proceedings of the AAAI Conference on Artificial Intelligence}, 
-	 author={Wang, Haonan and Cao, Peng and Wang, Jiaqi and Zaiane, Osmar R.}, 
-	 year={2022}, 
-	 month={Jun.}, 
-	 pages={2441-2449}}
 ```
 
 
 ## Contact 
-Haonan Wang ([haonan1wang@gmail.com](haonan1wang@gmail.com))
+Gongtao Yue([thirteen_yue@163.com](thirteen_yue@163.com))
