@@ -6,12 +6,7 @@ This repo is the official implementation of
 <p align="center">
   <img src="https://github.com/ThirteenYue/2MSPK-Net/blob/master/prior.png" width="50%" height="50%" />
 </p>
-
-
-
-
-We propose a Channel Transformer module (CTrans) and use it to 
-replace the skip connections in original U-Net, thus we name it 'U-CTrans-Net'.
+We proposed a segmentation method based on SAM prior knowledge guidance strategy, and the above is a schematic diagram of integrating SAM prior knowledge.For detailed method introduction, please read the original article
 
 
 **[Online Presentation Video](https://www.bilibili.com/video/BV1ZF411p7PM?spm_id_from=333.999.0.0) is available for brief introduction.**
