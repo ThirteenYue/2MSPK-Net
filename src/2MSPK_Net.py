@@ -2,9 +2,9 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-from ANet.src.MRA import *
-from ANet.src.RGflow import *
-from ANet.src.SGflow import *
+from .src.MRA import *
+from .src.RGflow import *
+from .src.SGflow import *
 
 
 class DoubleConv(nn.Module):
