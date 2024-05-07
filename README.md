@@ -1,4 +1,4 @@
-# 2MSPK-Net: A Nuclei Segmentation Network Based on Multi-Scale, Multi-Dimensional Attention, and SAM Prior Knowledge
+# 2MSPK-Net
 
 This repo is the official implementation of
 ['2MSPK-Net: A Nuclei Segmentation Network Based on Multi-Scale, Multi-Dimensional Attention, and SAM Prior Knowledge']
