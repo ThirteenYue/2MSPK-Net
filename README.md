@@ -1,12 +1,13 @@
 # 2MSPK-Net: A Nuclei Segmentation Network Based on Multi-Scale, Multi-Dimensional Attention, and SAM Prior Knowledge
 
+This repo is the official implementation of
+['2MSPK-Net: A Nuclei Segmentation Network Based on Multi-Scale, Multi-Dimensional Attention, and SAM Prior Knowledge']
+
 <p align="center">
   <img src="https://github.com/ThirteenYue/2MSPK-Net/blob/master/prior.png" width="50%" height="50%" />
 </p>
 
-This repo is the official implementation of
-['UCTransNet: Rethinking the Skip Connections in U-Net from
-a Channel-wise Perspective with Transformer'](https://ojs.aaai.org/index.php/AAAI/article/view/20144) which is accepted at AAAI2022.
+
 
 
 We propose a Channel Transformer module (CTrans) and use it to 
