@@ -1,7 +1,7 @@
 # 2MSPK-Net: A Nuclei Segmentation Network Based on Multi-Scale, Multi-Dimensional Attention, and SAM Prior Knowledge
 
 <p align="center">
-  <img src="https://github.com/ThirteenYue/2MSPK-Net/blob/master/prior.png" width="75%" height="75%" />
+  <img src="https://github.com/ThirteenYue/2MSPK-Net/blob/master/prior.png" width="50%" height="50%" />
 </p>
 
 This repo is the official implementation of
